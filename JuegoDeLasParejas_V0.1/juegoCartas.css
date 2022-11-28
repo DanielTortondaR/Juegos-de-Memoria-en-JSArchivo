@@ -1,0 +1,25 @@
+/* autor: DanielTortondaRuiz */
+body{
+    background-image:url("imagenes/fondo.jpg")
+}
+#caja{
+    border: 1px brown solid;
+    height: auto;
+    width: auto;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+.carta{
+    display: inline-flex;
+    border: 1px black solid;
+    height: 321px;
+    width: 400px;
+    padding: 20px;
+    position: relative;
+}
+img{
+    width: 400px;
+    height: 321px;
+    border: 1px black solid;
+    cursor: pointer;
+}
