@@ -1,25 +1,57 @@
 /* autor: DanielTortondaRuiz */
-body{
-    background-image:url("imagenes/fondo.jpg")
+body {
+  background-image: url("imagenes/fondo.jpg");
 }
-#caja{
-    border: 1px brown solid;
-    height: auto;
-    width: auto;
-    margin-top: 3%;
-    margin-left: 3%;
+#caja {
+  border: 1px brown solid;
+  height: auto;
+  width: auto;
+  margin-top: 3%;
+  margin-left: 3%;
 }
-.carta{
-    display: inline-flex;
-    border: 1px black solid;
-    height: 321px;
-    width: 400px;
-    padding: 20px;
-    position: relative;
+.carta {
+  display: inline-flex;
+  border: 1px black solid;
+  height: 321px;
+  width: 400px;
+  padding: 20px;
+  position: relative;
 }
-img{
-    width: 400px;
-    height: 321px;
-    border: 1px black solid;
-    cursor: pointer;
+img {
+  width: 400px;
+  height: 321px;
+  border: 1px black solid;
+  cursor: pointer;
+}
+
+#contenedor {
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+#botones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.button {
+  background: hsl(158, 94%, 48%);
+  width: 15%;
+  min-width: 150px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
