@@ -1,10 +1,26 @@
 const body = document.querySelector("body");
 
 //Rutas de la imágenes 
-const arquera = "imagenes/archer.png";
-const barbaro = "imagenes/barbarian.png";
-const gigante = "imagenes/giant.png";
-const mago = "imagenes/wizard.png";
+const jugia = "imagenes/Lugia.png";
+const mewtwo = "imagenes/Mewtwo.png";
+const groudon = "imagenes/Groudon.png";
+const kyogre = "imagenes/Kyogre.png";
+const rayquaza = "imagenes/Rayquaza.png";
+const giratina = "imagenes/Giratina.png";
+const dialga = "imagenes/Dialga.png";
+const xerneas = "imagenes/Xerneas.png";
+const yveltal = "imagenes/Yveltal.png";
+const solgaleo = "imagenes/Solgaleo.png";
+const lunala = "imagenes/Lunala.png";
+const palkia = "imagenes/Palkia.png";
+const regirock = "imagenes/Regirock.png";
+const regice = "imagenes/Regice.png";
+const registeel = "imagenes/Registeel.png";
+const deoxys = "imagenes/Deoxys.png";
+const regigigas = "imagenes/Regigigas.png";
+const arceus = "imagenes/Arceus.png";
+const cobalion = "imagenes/Cobalion.png";
+const volcanion = "imagenes/Volcanion.png";
 
 //Variables de juego
 let nivel = 1;
@@ -42,11 +58,6 @@ contenedor.appendChild(botones);
 
 body.appendChild(contenedor);
 
-
-
-
-
-
 let tablero = new Array();
 let caja = document.createElement("div");
 caja.id = "caja";
@@ -57,11 +68,7 @@ let seleccionada;
 function iniciarJuego(dificultad) {
   let arrayJuego = [arquera,arquera,barbaro,barbaro,gigante,gigante,mago,mago];
 
-  if(nivel <= 2) arrayJuego.push(arquera,arquera);
-  if(nivel <= 3) arrayJuego.push(barbaro,barbaro);
-  if(nivel <= 4) arrayJuego.push(gigante,gigante); 
-  if(nivel <= 5) arrayJuego.push(mago,mago);
-  if(nivel == 6) arrayJuego.push(arquera,arquera);
+
   
   while (arrayJuego.length > 1) {
     let num = Math.floor(Math.random() * (arrayJuego.length - 1) + 1);
