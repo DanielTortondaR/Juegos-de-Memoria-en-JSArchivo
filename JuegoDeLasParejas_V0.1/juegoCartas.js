@@ -10,34 +10,30 @@ titulo.id = "divTitulo";
 const texto = document.createElement("h1");
 texto.id="textoTitulo";
 texto.textContent = "Seleccione el nivel de dificultad:";
+titulo.appendChild(texto);
+contenedor.appendChild(titulo);
 
 // div botones y botones
 const botones = document.createElement("div");
 botones.id = "botones";
-const button1 = document.createElement("button");
-button1.id = 1;
-button1.className = "button";
-button1.textContent = "Fácil";
-const button2 = document.createElement("button");
-button2.id = 2;
-button2.className = "button";
-button2.textContent = "Medio";
-const button3 = document.createElement("button");
-button3.id = 3;
-button3.className = "button";
-button3.textContent = "Difícil";
+let dificultades = ["Fácil","Medio","Difícil"];
+for(let x = 0; x <3; x++){
+  const button = document.createElement("button");
+  button.id = x;
+  button.className = "button";
+  button.textContent = dificultades[x];
+  button.value = x;
+  button.addEventListener("click", iniciarJuego);
+  botones.appendChild(button);
+}
+contenedor.appendChild(botones);
 
 body.appendChild(contenedor);
-contenedor.appendChild(titulo);
-titulo.appendChild(texto);
-contenedor.appendChild(botones);
-botones.appendChild(button1);
-botones.appendChild(button2);
-botones.appendChild(button3);
 
-button1.addEventListener("click", iniciarJuego);
-button2.addEventListener("click", iniciarJuego);
-button3.addEventListener("click", iniciarJuego);
+
+
+
+
 
 let tablero = new Array();
 let caja = document.createElement("div");
@@ -47,6 +43,7 @@ let seleccionada;
 
 /* Inicia el tablero con una nueva diposición aleatoria de las imágenes */
 function iniciarJuego() {
+  
   let arrayJuego = new Array();
   arrayJuego.push("imagenes/archer.png");
   arrayJuego.push("imagenes/barbarian.png");
