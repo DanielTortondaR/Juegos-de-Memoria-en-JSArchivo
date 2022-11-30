@@ -8,7 +8,7 @@ contenedor.id = "contenedor";
 const titulo = document.createElement("div");
 titulo.id = "divTitulo";
 const texto = document.createElement("h1");
-texto.id="textoTitulo";
+texto.id = "textoTitulo";
 texto.textContent = "Seleccione el nivel de dificultad:";
 titulo.appendChild(texto);
 contenedor.appendChild(titulo);
@@ -16,24 +16,19 @@ contenedor.appendChild(titulo);
 // div botones y botones
 const botones = document.createElement("div");
 botones.id = "botones";
-let dificultades = ["Fácil","Medio","Difícil"];
-for(let x = 0; x <3; x++){
-  const button = document.createElement("button");
-  button.id = x;
-  button.className = "button";
-  button.textContent = dificultades[x];
-  button.value = x;
-  button.addEventListener("click", iniciarJuego);
-  botones.appendChild(button);
+let dificultades = ["Fácil", "Medio", "Difícil"];
+for (let x = 0; x < 3; x++) {
+  const boton = document.createElement("button");
+  boton.id = x;
+  boton.className = "button";
+  boton.textContent = dificultades[x];
+  boton.value = x;
+  boton.addEventListener("click",function() {iniciarJuego(x)});
+  botones.appendChild(boton);
 }
 contenedor.appendChild(botones);
 
 body.appendChild(contenedor);
-
-
-
-
-
 
 let tablero = new Array();
 let caja = document.createElement("div");
@@ -42,8 +37,9 @@ let seleccion = false;
 let seleccionada;
 
 /* Inicia el tablero con una nueva diposición aleatoria de las imágenes */
-function iniciarJuego() {
-  
+function iniciarJuego(dificultad) {
+
+
   let arrayJuego = new Array();
   arrayJuego.push("imagenes/archer.png");
   arrayJuego.push("imagenes/barbarian.png");
@@ -58,14 +54,8 @@ function iniciarJuego() {
     tablero.push(arrayJuego.splice(num, 1));
   }
   tablero.push(arrayJuego[0]);
-  /* cancion = document.body.createElement("audio");
-    cancion.src = "sonidos/fondo.mp3";
-    cancion.id = "fondo";
-    cancion.loop = true;
-    cancion.volume = 1; 
-    cancion.autoplay = true; */
 
-// borro los botones y demás, todo el div padre luego despliego tablero
+  // borro los botones y demás, todo el div padre luego despliego tablero
   contenedor.remove();
   desplegarTablero();
 }
