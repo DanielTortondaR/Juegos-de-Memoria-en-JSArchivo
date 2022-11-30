@@ -18,10 +18,12 @@ contenedor.id = "contenedor";
 const titulo = document.createElement("div");
 titulo.id = "divTitulo";
 const texto = document.createElement("h1");
-texto.id = "textoTitulo";
+texto.id="textoTitulo";
 texto.textContent = "Seleccione el nivel de dificultad:";
 titulo.appendChild(texto);
 contenedor.appendChild(titulo);
+
+
 
 // div botones y botones
 const botones = document.createElement("div");
@@ -40,6 +42,11 @@ contenedor.appendChild(botones);
 
 body.appendChild(contenedor);
 
+
+
+
+
+
 let tablero = new Array();
 let caja = document.createElement("div");
 caja.id = "caja";
@@ -48,25 +55,22 @@ let seleccionada;
 
 /* Inicia el tablero con una nueva diposición aleatoria de las imágenes */
 function iniciarJuego(dificultad) {
+  let arrayJuego = [arquera,arquera,barbaro,barbaro,gigante,gigante,mago,mago];
 
+  if(nivel <= 2) arrayJuego.push(arquera,arquera);
+  if(nivel <= 3) arrayJuego.push(barbaro,barbaro);
+  if(nivel <= 4) arrayJuego.push(gigante,gigante); 
+  if(nivel <= 5) arrayJuego.push(mago,mago);
+  if(nivel == 6) arrayJuego.push(arquera,arquera);
   
-
-  let arrayJuego = new Array();
-  arrayJuego.push("imagenes/archer.png");
-  arrayJuego.push("imagenes/barbarian.png");
-  arrayJuego.push("imagenes/giant.png");
-  arrayJuego.push("imagenes/wizard.png");
-  arrayJuego.push("imagenes/archer.png");
-  arrayJuego.push("imagenes/barbarian.png");
-  arrayJuego.push("imagenes/giant.png");
-  arrayJuego.push("imagenes/wizard.png");
   while (arrayJuego.length > 1) {
     let num = Math.floor(Math.random() * (arrayJuego.length - 1) + 1);
     tablero.push(arrayJuego.splice(num, 1));
   }
   tablero.push(arrayJuego[0]);
 
-  // borro los botones y demás, todo el div padre luego despliego tablero
+
+// borro los botones y demás, todo el div padre luego despliego tablero
   contenedor.remove();
   desplegarTablero();
 }
