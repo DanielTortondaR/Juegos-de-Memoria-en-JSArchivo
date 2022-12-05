@@ -23,7 +23,6 @@ const cobalion = "imagenes/Cobalion.png";
 const volcanion = "imagenes/Volcanion.png";
 
 //Variables de juego
-let nivel = 1;
 let dificultad;
 
 // contenedor padre
@@ -58,24 +57,47 @@ contenedor.appendChild(botones);
 
 body.appendChild(contenedor);
 
+//Variables para el tablero
 let tablero = new Array();
 let caja = document.createElement("div");
 caja.id = "caja";
 let seleccion = false;
 let seleccionada;
 
+
+
 /* Inicia el tablero con una nueva diposición aleatoria de las imágenes */
 function iniciarJuego(dificultad) {
-  let arrayJuego = [arquera,arquera,barbaro,barbaro,gigante,gigante,mago,mago];
 
+  let arrayJuego = [jugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
+    yveltal,solgaleo,jugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
+    yveltal,solgaleo];
 
-  
+  switch(dificultad){
+    case 0:
+      textodificultad = "Fácil";
+
+      break;
+    case 1:
+      textodificultad = "Medio";
+      arrayJuego.push(lunala,palkia,regirock,regice,registeel,
+        lunala,palkia,regirock,regice,registeel);
+      break;
+    case 2:
+      textodificultad = "Difícil";
+      arrayJuego.push(lunala,palkia,regirock,regice,registeel,
+        deoxys,regigigas,arceus,cobalion,volcanion,lunala,palkia,
+        regirock,regice,registeel,deoxys,regigigas,arceus,cobalion,
+        volcanion);
+      break;
+    
+  }
+
   while (arrayJuego.length > 1) {
     let num = Math.floor(Math.random() * (arrayJuego.length - 1) + 1);
     tablero.push(arrayJuego.splice(num, 1));
   }
   tablero.push(arrayJuego[0]);
-
 
 // borro los botones y demás, todo el div padre luego despliego tablero
   contenedor.remove();
@@ -84,12 +106,13 @@ function iniciarJuego(dificultad) {
 
 /* Despliega el tablero  */
 function desplegarTablero() {
-  for (let x = 0; x < 8; x++) {
+  console.log(tablero);
+  for (let x = 0; x < tablero.length; x++) {
     let div = document.createElement("div");
     div.className = "carta";
     let imagen = document.createElement("img");
     imagen.src = "imagenes/back.png";
-    imagen.id = "c" + x.toString();
+    imagen.id = x;
     imagen.addEventListener("click", descubrirCarta);
     div.appendChild(imagen);
     caja.appendChild(div);
@@ -100,7 +123,7 @@ function desplegarTablero() {
 /* Voltea las cartas y comprueba las jugadas */
 function descubrirCarta() {
   let cartaSelect = document.getElementById(this.id);
-  let posicion = parseInt(this.id.charAt(1));
+  let posicion = this.id;
   cartaSelect.src = tablero[posicion];
   if (seleccion && seleccionada.id != cartaSelect.id) {
     if (seleccionada.src != cartaSelect.src) {
