@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 
 //Rutas de la imágenes 
-const jugia = "imagenes/Lugia.png";
+const lugia = "imagenes/Lugia.png";
 const mewtwo = "imagenes/Mewtwo.png";
 const groudon = "imagenes/Groudon.png";
 const kyogre = "imagenes/Kyogre.png";
@@ -69,8 +69,8 @@ let seleccionada;
 /* Inicia el tablero con una nueva diposición aleatoria de las imágenes */
 function iniciarJuego(dificultad) {
 
-  let arrayJuego = [jugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
-    yveltal,solgaleo,jugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
+  let arrayJuego = [lugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
+    yveltal,solgaleo,lugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
     yveltal,solgaleo];
 
   switch(dificultad){
