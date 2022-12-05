@@ -2,24 +2,44 @@
 body {
   background-image: url("imagenes/fondo.jpg");
 }
-#caja {
-  border: 1px brown solid;
-  height: auto;
-  width: auto;
-  margin-top: 3%;
-  margin-left: 3%;
+
+
+.cajaFacil{
+  width: 1000px;
+  box-sizing: border-box;
+  margin: auto;
+  text-align: center;
+  padding: 1% .75%;
 }
+
+.cajaMedio{
+  width: 1000px;
+  box-sizing: border-box;
+  margin: auto;
+  text-align: center;
+  padding: 1% .75%;
+}
+
+.cajaDificil{
+  width: 1450px;
+  box-sizing: border-box;
+  margin: auto;
+  text-align: center;
+  padding: 1% .75%;
+}
+
 .carta {
-  display: inline-flex;
-  border: 1px black solid;
-  height: 321px;
-  width: 400px;
-  padding: 20px;
   position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin: .4%;
+  border-radius: 4px;
+  overflow: hidden;
 }
 img {
-  width: 300px;
-  height: 241px;
+  width: 150px;
+  height: 120px;
   border: 1px black solid;
   cursor: pointer;
 }

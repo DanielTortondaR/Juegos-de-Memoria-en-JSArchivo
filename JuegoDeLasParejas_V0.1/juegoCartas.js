@@ -76,12 +76,13 @@ function iniciarJuego(dificultad) {
   switch(dificultad){
     case 0:
       textodificultad = "Fácil";
-
+      caja.className = "cajaFacil";
       break;
     case 1:
       textodificultad = "Medio";
       arrayJuego.push(lunala,palkia,regirock,regice,registeel,
         lunala,palkia,regirock,regice,registeel);
+      caja.className = "cajaMedio";
       break;
     case 2:
       textodificultad = "Difícil";
@@ -89,6 +90,7 @@ function iniciarJuego(dificultad) {
         deoxys,regigigas,arceus,cobalion,volcanion,lunala,palkia,
         regirock,regice,registeel,deoxys,regigigas,arceus,cobalion,
         volcanion);
+      caja.className = "cajaDificil";
       break;
     
   }
