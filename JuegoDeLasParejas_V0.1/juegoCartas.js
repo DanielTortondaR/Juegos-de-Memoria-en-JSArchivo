@@ -22,6 +22,7 @@ const arceus = "imagenes/Arceus.png";
 const cobalion = "imagenes/Cobalion.png";
 const volcanion = "imagenes/Volcanion.png";
 
+
 //Variables de juego
 let dificultad;
 
@@ -38,9 +39,7 @@ texto.textContent = "Seleccione el nivel de dificultad:";
 titulo.appendChild(texto);
 contenedor.appendChild(titulo);
 
-
-
-// div botones y botones
+// div botones
 const botones = document.createElement("div");
 botones.id = "botones";
 let dificultades = ["Fácil", "Medio", "Difícil"];
@@ -55,6 +54,36 @@ for (let x = 0; x < 3; x++) {
 }
 contenedor.appendChild(botones);
 
+// div activar sonidos
+const sonidos = document.createElement("div");
+sonidos.id="sonidos";
+
+const textoSonido = document.createElement("p");
+textoSonido.innerText = "Sonidos:";
+sonidos.appendChild(textoSonido);
+
+const activadoP = document.createElement("p");
+activadoP.innerText = "Activado";
+sonidos.appendChild(activadoP);
+
+const activado = document.createElement("input");
+activado.setAttribute("type", "radio");
+activado.setAttribute("name", "selectorSonido");
+activado.setAttribute("checked", "checked");
+activado.setAttribute("value", "activado");
+sonidos.appendChild(activado);
+
+const desactivadoP = document.createElement("p");
+desactivadoP.innerText="Desactivado";
+sonidos.appendChild(desactivadoP);
+
+const desactivado = document.createElement("input");
+desactivado.setAttribute("type", "radio");
+desactivado.setAttribute("name", "selectorSonido");
+desactivado.setAttribute("value", "desactivado");
+sonidos.appendChild(desactivado);
+
+contenedor.appendChild(sonidos);
 body.appendChild(contenedor);
 
 //Variables para el tablero
@@ -63,11 +92,29 @@ let caja = document.createElement("div");
 caja.id = "caja";
 let seleccion = false;
 let seleccionada;
-
-
+let error = null;
+let correcto = null;
 
 /* Inicia el tablero con una nueva diposición aleatoria de las imágenes */
 function iniciarJuego(dificultad) {
+
+
+  let selectorRadio = document.querySelector('input[name="selectorSonido"]:checked').value;
+  console.log(selectorRadio);
+
+  // si se ha seleccionado sonido activado se añaden los sonidos al html
+  if (selectorRadio == "activado") {
+  //Sonidos
+  correcto = document.createElement("audio");
+  correcto.id= "correcto";
+  correcto.src = "sonidos/correcto.mp3";
+  body.appendChild(correcto);
+  
+  error = document.createElement("audio");
+  error.id= "error";
+  error.src = "sonidos/error.mp3";
+  body.appendChild(error);
+  }
 
   let arrayJuego = [lugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
     yveltal,solgaleo,lugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
@@ -133,6 +180,14 @@ function descubrirCarta() {
         (seleccionada.src = "imagenes/back.png"),
           (cartaSelect.src = "imagenes/back.png");
       }, 1000);
+
+      if (error!=null) {
+        error.play();  
+      }  
+    } else {
+      if (correcto != null) {
+        correcto.play();
+      }
     }
     seleccion = false;
   } else {
