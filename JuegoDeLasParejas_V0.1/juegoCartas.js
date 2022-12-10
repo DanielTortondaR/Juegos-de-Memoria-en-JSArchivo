@@ -236,27 +236,62 @@ function descubrirCarta() {
 }
 
 // añadir div cronometro
-
+let minutos;
+let segundos;
+let decimas;
 
 function crearCrono() {
 
   const CronoContenedor = document.createElement("div");
   CronoContenedor.setAttribute("id", "CronoContenedor");
 
-  const minutos = document.createElement("p");
+  minutos = document.createElement("p");
   minutos.setAttribute("id", "minutos");
   minutos.innerText = "00";
   CronoContenedor.appendChild(minutos);
 
-  const segundos = document.createElement("p");
+  const puntos = document.createElement("p");
+  puntos.setAttribute("id", "puntos");
+  puntos.innerText = "\'";
+  CronoContenedor.appendChild(puntos);
+
+  segundos = document.createElement("p");
   segundos.setAttribute("id", "segundos");
   segundos.innerText = "00";
   CronoContenedor.appendChild(segundos);
 
-  const decimas = document.createElement("p");
+  const puntos2 = document.createElement("p");
+  puntos2.setAttribute("id", "puntos2");
+  puntos2.innerText = "\"";
+  CronoContenedor.appendChild(puntos2);
+
+  decimas = document.createElement("p");
   decimas.setAttribute("id", "decimas");
   decimas.innerText = "00";
   CronoContenedor.appendChild(decimas);
 
   body.appendChild(CronoContenedor);
+  setInterval(cronometrar, 10);
+}
+
+
+
+
+function cronometrar(){
+let min = parseInt(minutos.innerHTML);
+let sec = parseInt(segundos.innerHTML);
+let dec = parseInt(decimas.innerHTML);
+
+dec++;
+if(dec == 99){
+  dec = 00;
+  sec++;
+}
+if(sec == 60){
+  sec = 00;
+  min++;
+}
+decimas.innerText = dec;
+segundos.innerText = sec;
+minutos.innerText = min;
 }
