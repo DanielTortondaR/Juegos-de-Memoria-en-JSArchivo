@@ -71,7 +71,7 @@ activado.setAttribute("type", "radio");
 activado.setAttribute("name", "selectorSonido");
 activado.setAttribute("checked", "checked");
 activado.setAttribute("value", "activado");
-activado.addEventListener("onchange", selectorSonidoF());
+activado.addEventListener("change", function() {selectorSonidoF("activado")});
 sonidos.appendChild(activado);
 
 const desactivadoP = document.createElement("p");
@@ -82,18 +82,18 @@ const desactivado = document.createElement("input");
 desactivado.setAttribute("type", "radio");
 desactivado.setAttribute("name", "selectorSonido");
 desactivado.setAttribute("value", "desactivado");
-activado.addEventListener("onchange", selectorSonidoF());
+desactivado.addEventListener("change",  function() {selectorSonidoF("desactivado")});
 sonidos.appendChild(desactivado);
 
 contenedor.appendChild(sonidos);
 body.appendChild(contenedor);
 
 let volumenMusica;
-// div selector sonido
-function selectorSonidoF() {
-  let selectorRadio = document.querySelector('input[name="selectorSonido"]:checked').value;
 
-  if (selectorRadio == "activado") {
+// div selector sonido
+function selectorSonidoF(estado) {
+  
+  if (estado == "activado") {
     const divSonido = document.createElement("div");
     divSonido.setAttribute("id", "divSonido");
     contenedor.appendChild(divSonido);
@@ -111,6 +111,9 @@ function selectorSonidoF() {
     volumenMusica.setAttribute("step", "0.1");
     volumenMusica.setAttribute("value", "0.5");
     divSonido.appendChild(volumenMusica);
+  } else {
+
+    divSonido.remove;
   }
 }
 
