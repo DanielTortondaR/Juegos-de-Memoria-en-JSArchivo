@@ -237,21 +237,25 @@ function descubrirCarta() {
 
 // añadir div cronometro
 
+
 function crearCrono() {
 
   const CronoContenedor = document.createElement("div");
   CronoContenedor.setAttribute("id", "CronoContenedor");
 
-  const minutos = document.createElement("div");
+  const minutos = document.createElement("p");
   minutos.setAttribute("id", "minutos");
+  minutos.innerText = "00";
   CronoContenedor.appendChild(minutos);
 
-  const segundos = document.createElement("div");
+  const segundos = document.createElement("p");
   segundos.setAttribute("id", "segundos");
+  segundos.innerText = "00";
   CronoContenedor.appendChild(segundos);
 
-  const decimas = document.createElement("div");
+  const decimas = document.createElement("p");
   decimas.setAttribute("id", "decimas");
+  decimas.innerText = "00";
   CronoContenedor.appendChild(decimas);
 
   body.appendChild(CronoContenedor);

@@ -148,5 +148,9 @@ img {
 #CronoContenedor {
   height: 60px;
   width: 200px;
-  background: black;
+  background: white;
+  border: black 1px solid;
+  display: flex;
+  align-content: center;
+  align-items: center;
 }
