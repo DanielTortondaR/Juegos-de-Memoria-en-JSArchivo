@@ -150,5 +150,7 @@ img {
   width: 200px;
   background: white;
   border: black 1px solid;
-  
+  display: flex;
+  align-content: center;
+  align-items: center;
 }
