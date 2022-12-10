@@ -69,7 +69,6 @@ sonidos.appendChild(activadoP);
 const activado = document.createElement("input");
 activado.setAttribute("type", "radio");
 activado.setAttribute("name", "selectorSonido");
-activado.setAttribute("checked", "checked");
 activado.setAttribute("value", "activado");
 activado.addEventListener("change", function() {selectorSonidoF("activado")});
 sonidos.appendChild(activado);
@@ -81,6 +80,7 @@ sonidos.appendChild(desactivadoP);
 const desactivado = document.createElement("input");
 desactivado.setAttribute("type", "radio");
 desactivado.setAttribute("name", "selectorSonido");
+desactivado.setAttribute("checked", "checked");
 desactivado.setAttribute("value", "desactivado");
 desactivado.addEventListener("change",  function() {selectorSonidoF("desactivado")});
 sonidos.appendChild(desactivado);
@@ -100,7 +100,7 @@ function selectorSonidoF(estado) {
     
     const pSonido = document.createElement("p");
     pSonido.setAttribute("id", "pSonido");
-    pSonido.innerText = "Volumen de musica: ";
+    pSonido.innerText = "Volumen de música: ";
     divSonido.appendChild(pSonido);
     
     volumenMusica = document.createElement("input");
@@ -112,8 +112,7 @@ function selectorSonidoF(estado) {
     volumenMusica.setAttribute("value", "0.5");
     divSonido.appendChild(volumenMusica);
   } else {
-
-    divSonido.remove;
+    contenedor.removeChild(divSonido);
   }
 }
 
