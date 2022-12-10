@@ -86,6 +86,7 @@ sonidos.appendChild(desactivado);
 contenedor.appendChild(sonidos);
 body.appendChild(contenedor);
 
+let volumenMusica;
 // div selector sonido
 const divSonido = document.createElement("div");
 divSonido.setAttribute("id", "divSonido");
@@ -96,12 +97,12 @@ pSonido.setAttribute("id", "pSonido");
 pSonido.innerText = "Volumen de musica: ";
 divSonido.appendChild(pSonido);
 
-const volumenMusica = document.createElement("input");
+volumenMusica = document.createElement("input");
 volumenMusica.setAttribute("id", "volumenMusica");
 volumenMusica.setAttribute("type", "range");
-volumenMusica.setAttribute("min", "1");
-volumenMusica.setAttribute("max", "10");
-volumenMusica.setAttribute("step", "1");
+volumenMusica.setAttribute("min", "0");
+volumenMusica.setAttribute("max", "1");
+volumenMusica.setAttribute("step", "0.1");
 divSonido.appendChild(volumenMusica);
 
 //Variables para el tablero
@@ -133,9 +134,11 @@ function iniciarJuego(dificultad) {
   error.id= "error";
   error.src = "sonidos/error.mp3";
   body.appendChild(error);
+
   musicaFondo = document.createElement("audio");
   musicaFondo.id= "musicaFondo";
   musicaFondo.src = "sonidos/BandaSonora.mp3";
+  musicaFondo.volume=volumenMusica.value;
   body.appendChild(musicaFondo);
   musicaFondo.play();
   }
