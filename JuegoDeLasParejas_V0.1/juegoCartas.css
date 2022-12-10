@@ -1,9 +1,16 @@
-/* autor: DanielTortondaRuiz */
+/* autores: DanielTortondaRuiz y Gonzalo Rodríguez Caro*/
+
+@font-face {
+  font-family: pokemonLetter;
+  src: url(fuentes/Pokemon\ Hollow.ttf);
+}
+
 body {
   background-image: url("imagenes/fondo.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: pokemonLetter;
 }
 
 .cajaFacil{
