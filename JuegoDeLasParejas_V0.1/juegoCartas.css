@@ -59,7 +59,7 @@ img {
   height: 120px;
   border: 1px black solid;
   cursor: pointer;
-  background-color: rgb(0, 108, 249);
+  background-color: rgb(151, 189, 238);;
 }
 
 #contenedor {
@@ -147,10 +147,12 @@ img {
 
 #CronoContenedor {
   height: 60px;
-  width: 200px;
-  background: rgb(0, 108, 249);
+  width: 180px;
+  background: rgb(151, 189, 238);
   border: black 1px solid;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 25px;
 }
+
