@@ -1,6 +1,9 @@
 /* autor: DanielTortondaRuiz */
 body {
   background-image: url("imagenes/fondo.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
