@@ -1,8 +1,10 @@
 /* autor: DanielTortondaRuiz */
 body {
   background-image: url("imagenes/fondo.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 
 .cajaFacil{
   width: 1000px;
@@ -55,6 +57,20 @@ img {
     flex-direction: column;
 }
 
+#divTitulo {
+  background: hsl(158, 94%, 48%);
+  width: 510px;
+  min-width: 150px;
+  height: 80px;
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border: 2px black solid;
+}
+
 #botones {
     display: flex;
     flex-direction: row;
@@ -83,4 +99,5 @@ img {
     align-items: center;
     border: 2px black solid;
     gap: 5px;
+    width: 350px;
 }
