@@ -115,6 +115,11 @@ function iniciarJuego(dificultad) {
   error.id= "error";
   error.src = "sonidos/error.mp3";
   body.appendChild(error);
+  musicaFondo = document.createElement("audio");
+  musicaFondo.id= "musicaFondo";
+  musicaFondo.src = "sonidos/BandaSonora.mp3";
+  body.appendChild(musicaFondo);
+  musicaFondo.play();
   }
 
   let arrayJuego = [lugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
