@@ -130,11 +130,9 @@ let correcto = null;
 /* Inicia el tablero con una nueva diposición aleatoria de las imágenes */
 function iniciarJuego(dificultad) {
 
-
   let selectorRadio = document.querySelector('input[name="selectorSonido"]:checked').value;
   console.log(selectorRadio);
 
-  // si se ha seleccionado sonido activado se añaden los sonidos al html
   if (selectorRadio == "activado") {
   //Sonidos
   correcto = document.createElement("audio");
@@ -154,6 +152,8 @@ function iniciarJuego(dificultad) {
   body.appendChild(musicaFondo);
   musicaFondo.play();
   }
+
+  crearCrono();
 
   let arrayJuego = [lugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
     yveltal,solgaleo,lugia,mewtwo,groudon,kyogre,rayquaza,giratina,dialga,xerneas,
@@ -233,4 +233,26 @@ function descubrirCarta() {
     seleccionada = cartaSelect;
     seleccion = true;
   }
+}
+
+// añadir div cronometro
+
+function crearCrono() {
+
+  const CronoContenedor = document.createElement("div");
+  CronoContenedor.setAttribute("id", "CronoContenedor");
+
+  const minutos = document.createElement("div");
+  minutos.setAttribute("id", "minutos");
+  CronoContenedor.appendChild(minutos);
+
+  const segundos = document.createElement("div");
+  segundos.setAttribute("id", "segundos");
+  CronoContenedor.appendChild(segundos);
+
+  const decimas = document.createElement("div");
+  decimas.setAttribute("id", "decimas");
+  CronoContenedor.appendChild(decimas);
+
+  body.appendChild(CronoContenedor);
 }
