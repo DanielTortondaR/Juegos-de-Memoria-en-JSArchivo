@@ -128,3 +128,19 @@ img {
     font-size: 20px;
     height: 60px;
 }
+
+#volumenMusica {
+  width: 307px;
+}
+
+#divSonido {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  background: white;
+  height: 60px;
+  width: 657px;
+  border: 2px black solid;
+  font-size: 20px;
+}
+

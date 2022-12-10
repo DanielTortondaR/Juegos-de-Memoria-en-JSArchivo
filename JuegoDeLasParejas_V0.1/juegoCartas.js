@@ -86,6 +86,24 @@ sonidos.appendChild(desactivado);
 contenedor.appendChild(sonidos);
 body.appendChild(contenedor);
 
+// div selector sonido
+const divSonido = document.createElement("div");
+divSonido.setAttribute("id", "divSonido");
+contenedor.appendChild(divSonido);
+
+const pSonido = document.createElement("p");
+pSonido.setAttribute("id", "pSonido");
+pSonido.innerText = "Volumen de musica: ";
+divSonido.appendChild(pSonido);
+
+const volumenMusica = document.createElement("input");
+volumenMusica.setAttribute("id", "volumenMusica");
+volumenMusica.setAttribute("type", "range");
+volumenMusica.setAttribute("min", "1");
+volumenMusica.setAttribute("max", "10");
+volumenMusica.setAttribute("step", "1");
+divSonido.appendChild(volumenMusica);
+
 //Variables para el tablero
 let tablero = new Array();
 let caja = document.createElement("div");
