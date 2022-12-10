@@ -53,13 +53,13 @@ body {
   margin: .4%;
   border-radius: 4px;
   overflow: hidden;
-  background-color: white;
 }
 img {
   width: 150px;
   height: 120px;
   border: 1px black solid;
   cursor: pointer;
+  background-color: white;
 }
 
 #contenedor {
