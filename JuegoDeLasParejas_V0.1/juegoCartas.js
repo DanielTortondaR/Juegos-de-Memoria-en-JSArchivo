@@ -63,7 +63,7 @@ textoSonido.innerText = "Sonidos:";
 sonidos.appendChild(textoSonido);
 
 const activadoP = document.createElement("p");
-activadoP.innerText = "Activado";
+activadoP.innerText = "ON";
 sonidos.appendChild(activadoP);
 
 const activado = document.createElement("input");
@@ -74,7 +74,7 @@ activado.setAttribute("value", "activado");
 sonidos.appendChild(activado);
 
 const desactivadoP = document.createElement("p");
-desactivadoP.innerText="Desactivado";
+desactivadoP.innerText="OFF";
 sonidos.appendChild(desactivadoP);
 
 const desactivado = document.createElement("input");
@@ -94,6 +94,7 @@ let seleccion = false;
 let seleccionada;
 let error = null;
 let correcto = null;
+
 
 /* Inicia el tablero con una nueva diposición aleatoria de las imágenes */
 function iniciarJuego(dificultad) {
