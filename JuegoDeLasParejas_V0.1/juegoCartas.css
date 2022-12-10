@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: pokemonLetter;
-  src: url(fuentes/Pokemon\ Hollow.ttf);
+  src: url(fuentes/Pokemon\ Solid.ttf);
 }
 
 body {
@@ -11,6 +11,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: pokemonLetter;
+  color:yellow;
+  text-shadow: -1px -1px 1px rgb(4, 70, 252), 1px 1px 1px rgb(4, 70, 252), -1px 1px 1px rgb(4, 70, 252), 1px -1px 1px rgb(4, 70, 252);
+  -webkit-text-fill-color: #FCDB00;
+  -webkit-text-stroke: 2px rgb(2, 36, 130);
+  text-shadow: 0 0 10px rgb(255, 255, 255), 0 0 10px rgb(255, 255, 255),
+		0 0 10px rgb(255, 255, 255)
 }
 
 .cajaFacil{
