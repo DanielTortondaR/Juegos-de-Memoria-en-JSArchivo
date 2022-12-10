@@ -71,6 +71,7 @@ activado.setAttribute("type", "radio");
 activado.setAttribute("name", "selectorSonido");
 activado.setAttribute("checked", "checked");
 activado.setAttribute("value", "activado");
+activado.addEventListener("onchange", selectorSonidoF());
 sonidos.appendChild(activado);
 
 const desactivadoP = document.createElement("p");
@@ -81,6 +82,7 @@ const desactivado = document.createElement("input");
 desactivado.setAttribute("type", "radio");
 desactivado.setAttribute("name", "selectorSonido");
 desactivado.setAttribute("value", "desactivado");
+activado.addEventListener("onchange", selectorSonidoF());
 sonidos.appendChild(desactivado);
 
 contenedor.appendChild(sonidos);
@@ -88,22 +90,30 @@ body.appendChild(contenedor);
 
 let volumenMusica;
 // div selector sonido
-const divSonido = document.createElement("div");
-divSonido.setAttribute("id", "divSonido");
-contenedor.appendChild(divSonido);
+function selectorSonidoF() {
+  let selectorRadio = document.querySelector('input[name="selectorSonido"]:checked').value;
 
-const pSonido = document.createElement("p");
-pSonido.setAttribute("id", "pSonido");
-pSonido.innerText = "Volumen de musica: ";
-divSonido.appendChild(pSonido);
+  if (selectorRadio == "activado") {
+    const divSonido = document.createElement("div");
+    divSonido.setAttribute("id", "divSonido");
+    contenedor.appendChild(divSonido);
+    
+    const pSonido = document.createElement("p");
+    pSonido.setAttribute("id", "pSonido");
+    pSonido.innerText = "Volumen de musica: ";
+    divSonido.appendChild(pSonido);
+    
+    volumenMusica = document.createElement("input");
+    volumenMusica.setAttribute("id", "volumenMusica");
+    volumenMusica.setAttribute("type", "range");
+    volumenMusica.setAttribute("min", "0");
+    volumenMusica.setAttribute("max", "1");
+    volumenMusica.setAttribute("step", "0.1");
+    volumenMusica.setAttribute("value", "0.5");
+    divSonido.appendChild(volumenMusica);
+  }
+}
 
-volumenMusica = document.createElement("input");
-volumenMusica.setAttribute("id", "volumenMusica");
-volumenMusica.setAttribute("type", "range");
-volumenMusica.setAttribute("min", "0");
-volumenMusica.setAttribute("max", "1");
-volumenMusica.setAttribute("step", "0.1");
-divSonido.appendChild(volumenMusica);
 
 //Variables para el tablero
 let tablero = new Array();
