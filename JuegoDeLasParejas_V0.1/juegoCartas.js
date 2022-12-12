@@ -24,8 +24,8 @@ const volcanion = "imagenes/Volcanion.png";
 
 
 //Variables de juego
-let dificultad;
-
+let parejas;
+let cronoJ = true;
 // contenedor padre
 const contenedor = document.createElement("div");
 contenedor.id = "contenedor";
@@ -130,6 +130,8 @@ let correcto = null;
 /* Inicia el tablero con una nueva diposición aleatoria de las imágenes */
 function iniciarJuego(dificultad) {
 
+  
+
   let selectorRadio = document.querySelector('input[name="selectorSonido"]:checked').value;
   console.log(selectorRadio);
 
@@ -163,12 +165,14 @@ function iniciarJuego(dificultad) {
     case 0:
       textodificultad = "Fácil";
       caja.className = "cajaFacil";
+      parejas = 10;
       break;
     case 1:
       textodificultad = "Medio";
       arrayJuego.push(lunala,palkia,regirock,regice,registeel,
         lunala,palkia,regirock,regice,registeel);
       caja.className = "cajaMedio";
+      parejas = 15;
       break;
     case 2:
       textodificultad = "Difícil";
@@ -177,6 +181,7 @@ function iniciarJuego(dificultad) {
         regirock,regice,registeel,deoxys,regigigas,arceus,cobalion,
         volcanion);
       caja.className = "cajaDificil";
+      parejas = 20;
       break;
     
   }
@@ -227,12 +232,15 @@ function descubrirCarta() {
       if (correcto != null) {
         correcto.play();
       }
+      parejas = parejas - 1;
+      console.log(parejas);
     }
     seleccion = false;
   } else {
     seleccionada = cartaSelect;
     seleccion = true;
   }
+  if(parejas == 0) final();
 }
 
 // añadir div cronometro
@@ -271,7 +279,12 @@ function crearCrono() {
   CronoContenedor.appendChild(decimas);
 
   body.appendChild(CronoContenedor);
-  setInterval(cronometrar, 10);
+  
+  if(cronoJ){
+    setInterval(cronometrar, 10);  
+  }
+  
+  
 }
 
 
@@ -294,4 +307,14 @@ if(sec == 60){
 decimas.innerText = dec;
 segundos.innerText = sec;
 minutos.innerText = min;
+}
+
+
+function final(){
+  cronoJ = false;
+  if(confirm(`Su tiempo es de ${minutos.innerText}:${segundos.innerText}:${decimas.innerText} \n ¿Desea jugar otra partida?`)){
+    location.reload();
+  }else{
+    window.close();
+  }
 }
